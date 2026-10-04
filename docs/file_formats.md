@@ -249,6 +249,13 @@ The first section contains options used to configure Casanovo during *de novo* p
 For example, the `top_match` option in the first section makes it possible to flexibly report multiple PSMs per spectrum during _de novo_ peptide sequencing.
 In contrast, setting a different value for the `max_peaks` option in the second section is only possible when training a new model, and cannot be modified when predicting with a previously trained model that uses a different configuration.
 
+### Peptide notation (tokenizer)
+
+By default, Casanovo reads and writes peptides using ProForma notation.
+Setting `massivekb_tokenizer: true` in the configuration file switches to a MassIVE-KB style tokenizer instead.
+This affects how peptides are parsed from annotated training and evaluation files and how predicted peptides are represented.
+The option must match the vocabulary of the model weights being used, so leave it at its default (`false`) unless your model was trained with the MassIVE-KB tokenizer.
+
 ```{tip}
 Each change in the configuration can lead to different outcomes in the peptide sequencing process, so it may be beneficial to experiment with various settings to find the optimal configuration for your data.
 Always consider your experimental design and the nature of your data when adjusting these settings.
