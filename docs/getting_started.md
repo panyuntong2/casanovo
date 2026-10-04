@@ -247,8 +247,7 @@ Optionally, you can continue training using weights from a previously trained mo
 This can be useful if you have a smaller set of annotated spectra but want to fine-tune the model to potentially capture properties of spectra that are particular to your experimental setup.
 To do this fine-tuning, specify the starting model weights using `--model`.
 
-Note that you cannot (currently) fine-tune a model using a different amino acid alphabet.
-Hence, if you want to add new types of PTMs to Casanovo, you have to train from scratch.
+To fine-tune a model on data with new post-translational modifications, add the new residues to the `residues` option and map each one to an existing token with `new_token_init`; see the [FAQ](faq.md#how-do-i-fine-tune-casanovo-on-data-with-new-ptms) for a step-by-step guide.
 We are working on adding functionality to allow novel PTMs during fine-tuning, using the approach pioneered by [Modanovo](https://linkinghub.elsevier.com/retrieve/pii/S1535-9476(25)00600-0).
 
 #### Lance file caching
