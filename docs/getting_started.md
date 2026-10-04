@@ -248,7 +248,6 @@ This can be useful if you have a smaller set of annotated spectra but want to fi
 To do this fine-tuning, specify the starting model weights using `--model`.
 
 To fine-tune a model on data with new post-translational modifications, add the new residues to the `residues` option and map each one to an existing token with `new_token_init`; see the [FAQ](faq.md#how-do-i-fine-tune-casanovo-on-data-with-new-ptms) for a step-by-step guide.
-We are working on adding functionality to allow novel PTMs during fine-tuning, using the approach pioneered by [Modanovo](https://linkinghub.elsevier.com/retrieve/pii/S1535-9476(25)00600-0).
 
 #### Lance file caching
 
