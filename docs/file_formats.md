@@ -197,10 +197,9 @@ PSM	THMELGGK	1	sp|A5A616|MGTS_ECOLI	null	null	null	[MS, MS:1003281, Casanovo, 4.
 In this case, each PSM contains additional information in the `accession` column referring to the identifier of the protein the matched peptide is derived from.
 
 ```{note}
-Scores in Casanovo range from -1 to 1, where 1 indicates high confidence in the prediction.
-A score below 0 occurs for a predicted peptide sequence that mismatches the observed precursor mass, in which case the score is penalized by subtracting 1.
-This will also be evident from a difference in the observed precursor _m_/_z_, in the `exp_mass_to_charge` column, and the precursor _m_/_z_ calculated from the predicted peptide sequence, in the `calc_mass_to_charge` column.
-Hence, it is important to properly configure settings that impact the precursor mass filter, such as the precursor mass tolerance (option `precursor_mass_tol`) and the isotopes to consider (option `isotope_error_range`).
+Higher scores indicate higher confidence in the prediction.
+As of version 5.2.0, the precursor mass filter is no longer applied in *de novo* sequencing mode, and scores are no longer penalized based on the precursor mass.
+The options `precursor_mass_tol` and `isotope_error_range` now only apply to database searching mode.
 ```
 
 The `spectra_ref` column is essential for connecting predictions back to the corresponding MS/MS spectra in the input file(s).
@@ -306,7 +305,7 @@ When fine-tuning a pre-trained model with new PTMs, the `new_token_init` option 
 See the [FAQ](faq.md#how-do-i-fine-tune-casanovo-on-data-with-new-ptms) for the complete fine-tuning workflow.
 
 mzML or mzXML files are not supported as input during training, as these formats do not provide a mechanism to annotate their spectra with peptide sequences.
-Similarly, when running `casanovo sequence --evaluate` only annotated MGF files are supported.
+Similarly, in Casanovo evaluation mode only annotated MGF files are supported.
 
 <!-- TODO: when index files can be reused, document this here -->
 
