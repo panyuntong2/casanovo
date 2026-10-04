@@ -31,7 +31,7 @@ In case the FASTA file contains amino acids that are not in Casanovo's vocabular
 
 ### Model weights
 
-In addition to MS/MS spectra, Casanovo also optionally accepts a model weights (.ckpt extension) input file when running in training, sequencing, or evaluating mode.
+In addition to MS/MS spectra, Casanovo also optionally accepts a model weights (.ckpt extension) input file when running in training, sequencing (including `--evaluate`), or database search mode.
 These weights define the functionality of the Casanovo neural network.
 
 If no input weights file is provided, Casanovo will automatically use the most recent compatible weights from the [official Casanovo GitHub repository](https://github.com/Noble-Lab/casanovo), which will be downloaded and cached locally if they are not already.
@@ -306,7 +306,7 @@ When fine-tuning a pre-trained model with new PTMs, the `new_token_init` option 
 See the [FAQ](faq.md#how-do-i-fine-tune-casanovo-on-data-with-new-ptms) for the complete fine-tuning workflow.
 
 mzML or mzXML files are not supported as input during training, as these formats do not provide a mechanism to annotate their spectra with peptide sequences.
-Similarly, in Casanovo evaluation mode only annotated MGF files are supported.
+Similarly, when running `casanovo sequence --evaluate` only annotated MGF files are supported.
 
 <!-- TODO: when index files can be reused, document this here -->
 
