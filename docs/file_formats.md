@@ -255,10 +255,8 @@ Always consider your experimental design and the nature of your data when adjust
 
 ### Peptide notation (tokenizer)
 
-By default, Casanovo reads and writes peptides using ProForma notation.
-Setting `massivekb_tokenizer: true` in the configuration file switches to a MassIVE-KB style tokenizer instead.
-This affects how peptides are parsed from annotated training and evaluation files and how predicted peptides are represented.
-The option must match the vocabulary of the model weights being used, so leave it at its default (`false`) unless your model was trained with the MassIVE-KB tokenizer.
+By default, Casanovo uses the ProForma peptide tokenizer. Setting `massivekb_tokenizer: true` in the configuration file switches to a MassIVE-KB style tokenizer instead.
+Keep the default (`false`) unless your model was trained with the MassIVE-KB tokenizer.
 
 ## Logging
 
@@ -305,11 +303,11 @@ When fine-tuning a pre-trained model with new PTMs, the `new_token_init` option 
 See the [FAQ](faq.md#how-do-i-fine-tune-casanovo-on-data-with-new-ptms) for the complete fine-tuning workflow.
 
 mzML or mzXML files are not supported as input during training, as these formats do not provide a mechanism to annotate their spectra with peptide sequences.
-Similarly, in Casanovo evaluation mode only annotated MGF files are supported.
+Similarly, when running `casanovo sequence --evaluate` only annotated MGF files are supported.
 
 <!-- TODO: when index files can be reused, document this here -->
 
-During training, Casanovo will save a **checkpoint file** every time the validation performance is evaluated, at the `val_check_interval` frequency specified in the configuration. This can be an integer number of training steps (at least 1) or a float between 0 and 1 giving a fraction of each epoch (for example, `1.0` validates once per epoch).
+During training, Casanovo will save a **checkpoint file** every time the validation performance is evaluated, at the `val_check_interval` frequency specified in the configuration. This can be an integer number of training steps (at least 1) or a float between 0 and 1 giving a fraction of each epoch.
 Model checkpoints will be saved to the folder specified by the `--output_dir` command line option with filename format `epoch=EPOCH-step=STEP.ckpt`, with `EPOCH` the epoch and `STEP` the training step at which the checkpoint was taken, helping you track progress and select the best model based on validation performance.
 
 <!-- TODO: when checkpointing is made more flexible, update this information -->
