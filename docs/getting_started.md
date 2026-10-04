@@ -28,7 +28,7 @@ This will create an Anaconda environment called `casanovo_env` that has Python 3
 
 ```{Note} 
 Currently, due to outstanding issues with support of Pytorch on Mac, you should install with Python version 3.10, like this `conda create --name casanovo_env python=3.10`.
-Also, note that Apple Silicon is not yet supported by Pytorch, so Mac users will be restricted to CPU use only.
+On Apple Silicon Macs, Casanovo versions 5.1.0 through 5.2.1 run on the CPU even when `accelerator` is `auto`. This override has been removed in the development version, which can use the GPU through Apple's Metal Performance Shaders (MPS); see the [FAQ](faq.md) for the environment variable this requires.
 ```
 
 Activate this environment by running:
@@ -159,7 +159,7 @@ casanovo db-search spectra.mgf proteome.fasta --export
 ```
 
 This writes a tab-separated file named `<output_root>.tsv` to the output directory, after the search finishes.
-For each candidate peptide it lists the associated protein(s), the peptide sequence, and its calculated mass.
+The file has one row per candidate peptide, with the columns `peptide` (the peptide sequence), `protein` (a list of the protein(s) it was digested from), and `calc_mass` (the calculated peptide mass).
 This file is mainly intended for debugging.
 
 ```{note}
