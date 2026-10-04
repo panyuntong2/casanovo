@@ -136,7 +136,7 @@ casanovo sequence annotated_spectra.mgf --evaluate
 
 To evaluate the peptide predictions, ground truth peptide labels must to be provided as an annotated MGF file where the peptide sequence is denoted in the `SEQ` field. 
 Compatible MGF files are available from [MassIVE-KB](https://massive.ucsd.edu/ProteoSAFe/static/massive-kb-libraries.jsp).
-Note that the `--evaluate` flag requires that `top-match` is set to 1 in the configuration file.
+Note that the `--evaluate` flag requires that `top_match` is set to 1 in the configuration file.
 
 ### Database searching
 
