@@ -133,7 +133,7 @@ MTD	software[1]-setting[20]	tb_summarywriter = False
 MTD	software[1]-setting[21]	log_metrics = False
 MTD	software[1]-setting[22]	log_every_n_steps = 50
 MTD	software[1]-setting[23]	val_check_interval = 50000
-MTD	software[1]-setting[24]	n_peaks = 150
+MTD	software[1]-setting[24]	max_peaks = 150
 MTD	software[1]-setting[25]	min_mz = 50.0
 MTD	software[1]-setting[26]	max_mz = 2500.0
 MTD	software[1]-setting[27]	min_intensity = 0.01
@@ -247,7 +247,7 @@ After editing, specify your custom configuration file when running Casanovo with
 The configuration file is divided into sections, each containing options that are relevant to different phases of Casanovo's operation.
 The first section contains options used to configure Casanovo during *de novo* peptide sequencing, followed by options in the second section that can only be modified when training a new model.
 For example, the `top_match` option in the first section makes it possible to flexibly report multiple PSMs per spectrum during _de novo_ peptide sequencing.
-In contrast, setting a different value for the `n_peaks` option in the second section is only possible when training a new model, and cannot be modified when predicting with a previously trained model that uses a different configuration.
+In contrast, setting a different value for the `max_peaks` option in the second section is only possible when training a new model, and cannot be modified when predicting with a previously trained model that uses a different configuration.
 
 ```{tip}
 Each change in the configuration can lead to different outcomes in the peptide sequencing process, so it may be beneficial to experiment with various settings to find the optimal configuration for your data.
