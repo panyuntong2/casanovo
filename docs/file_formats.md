@@ -310,7 +310,7 @@ Similarly, in Casanovo evaluation mode only annotated MGF files are supported.
 
 <!-- TODO: when index files can be reused, document this here -->
 
-During training, Casanovo will save a **checkpoint file** every time the validation performance is evaluated, at the `val_check_interval` frequency specified in the configuration.
+During training, Casanovo will save a **checkpoint file** every time the validation performance is evaluated, at the `val_check_interval` frequency specified in the configuration. This can be an integer number of training steps (at least 1) or a float between 0 and 1 giving a fraction of each epoch (for example, `1.0` validates once per epoch).
 Model checkpoints will be saved to the folder specified by the `--output_dir` command line option with filename format `epoch=EPOCH-step=STEP.ckpt`, with `EPOCH` the epoch and `STEP` the training step at which the checkpoint was taken, helping you track progress and select the best model based on validation performance.
 
 <!-- TODO: when checkpointing is made more flexible, update this information -->
